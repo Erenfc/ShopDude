@@ -4,20 +4,20 @@ function Category({ mode, cardStyle }) {
   return (
     <div className="overflow-x-auto">
       <div className="flex flex-nowrap">
-        <CategoryCard imgUrl="https://example.com/fruits-vegetables.jpg" title="Fruits & Vegetables" cardStyle={cardStyle} />
-        <CategoryCard imgUrl="https://example.com/eggs-meat-fish.jpg" title="Eggs, Meat & Fish" cardStyle={cardStyle} />
+        <CategoryCard imgUrl="https://i.postimg.cc/mDQc5Y65/fruitveg-removebg-preview.png" title="Fruits & Vegetables" cardStyle={cardStyle} />
+        <CategoryCard imgUrl="https://i.postimg.cc/fLMWkckm/Meats-Fish-removebg-preview.png" title="Meat & Fish" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/rice-atta-dal.jpg" title="Rice, Atta & Dal" cardStyle={cardStyle} />
-        <CategoryCard imgUrl="https://example.com/oil-masala-sauces.jpg" title="Oil, Masala & Sauces" cardStyle={cardStyle} />
-        <CategoryCard imgUrl="https://example.com/snacks-biscuits.jpg" title="Snacks & Biscuits" cardStyle={cardStyle} />
+        <CategoryCard imgUrl="https://i.postimg.cc/G2GcLT9D/Oil-Masala-Sauces-QL30-removebg-preview.png" title="Oil, Masala & Sauces" cardStyle={cardStyle} />
+        <CategoryCard imgUrl="https://i.postimg.cc/tCT0qvSb/Snacks-Biscuits-2-removebg-preview.png" title="Snacks & Biscuits" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/instant-food.jpg" title="Instant Food" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/dairy-bread.jpg" title="Dairy & Bread" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/chocolates-icecreams.jpg" title="Chocolates & Icecreams" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/breakfast-food-item.jpg" title="Breakfast Food Item" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/tea-coffee.jpg" title="Tea & Coffee" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/health-nutrition.jpg" title="Health & Nutrition" cardStyle={cardStyle} />
-        <CategoryCard imgUrl="https://example.com/cleaning-household.jpg" title="Cleaning & Household" cardStyle={cardStyle} />
+        <CategoryCard imgUrl="https://i.postimg.cc/c4jn6LYT/Cleaning-Household-removebg-preview.png" title="Cleaning & Household" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/hygiene-personal-care.jpg" title="Hygiene & Personal Care" cardStyle={cardStyle} />
-        <CategoryCard imgUrl="https://example.com/soap-shampoo.jpg" title="Soap & Shampoo" cardStyle={cardStyle} />
+        <CategoryCard imgUrl="https://i.postimg.cc/GtTLY1TY/Bath-Body-QL30-removebg-preview.png" title="Soap & Shampoo" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/beauty-makeup.jpg" title="Beauty & Makeup" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://example.com/baby-care.jpg" title="Baby Care" cardStyle={cardStyle} />
       </div>
