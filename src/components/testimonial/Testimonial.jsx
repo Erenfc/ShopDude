@@ -33,7 +33,6 @@ const Testimonial = () => {
         <h1 className="text-center text-3xl font-bold text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>Testimonials</h1>
         <h2 className="text-center text-2xl font-semibold mb-10" style={{ color: mode === 'dark' ? 'white' : '' }}>What our <span className="text-green-500">customers</span> are saying</h2>
 
-        {/* Testimonial Slider */}
         <Slider {...testimonialSettings}>
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="lg:w-1/3 lg:mb-0 mb-6 p-4">

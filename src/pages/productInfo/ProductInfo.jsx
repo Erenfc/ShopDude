@@ -40,7 +40,7 @@ function ProductInfo() {
 
     const addCart = (products) => {
         dispatch(addToCart(products))
-        toast.success('add to cart');
+        toast.success('added to cart');
     }
 
     useEffect(() => {
@@ -49,8 +49,8 @@ function ProductInfo() {
 
     return (
         <Layout>
-    <section className="text-gray-600 body-font overflow-hidden">
-        <div className="container px-5 py-10 mx-auto mb-8 md:mb-12 lg:mb-16">
+         <section className="text-gray-600 body-font overflow-hidden">
+          <div className="container px-5 py-10 mx-auto mb-8 md:mb-12 lg:mb-16">
             {products && 
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
                 <img

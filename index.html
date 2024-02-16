@@ -6,13 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShopDude - Online Grocery Shopping Platform</title>
   <script>
-    let docTitle = document.title; 
-    window.addEventListener("blur", () => { 
-      document.title = "Come back"; 
-    }) 
-    window.addEventListener("focus", () => { 
-      document.title = docTitle; 
-    })
+    let docTitle = document.title;
+
+    function writeTitle() {
+      let title = docTitle;
+      let index = 0;
+      let intervalId = setInterval(function() {
+        if (index <= title.length) {
+          document.title = title.substring(0, index++);
+        } else {
+          clearInterval(intervalId);
+        }
+      }, 200);
+    }
+
+    window.addEventListener("blur", () => {
+      document.title = "Let's Shop Dude 🥹";
+    });
+
+    window.addEventListener("focus", () => {
+      document.title = docTitle;
+    });
+
+    writeTitle();
   </script>
 </head>
 <body>

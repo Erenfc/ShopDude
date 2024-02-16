@@ -1,0 +1,69 @@
+.add-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button {
+    display: block;
+    height: 40px;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 70px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+.image-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 75%;
+    height: 100%;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.store-product-container {
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #f1edf3;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: none;
+}
+
+.store-product-container > * {
+    flex: 1;
+}
+
+.store-product-container a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.store-product-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
