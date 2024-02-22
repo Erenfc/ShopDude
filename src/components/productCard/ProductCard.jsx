@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
@@ -12,6 +12,7 @@ function ProductCard() {
 
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart);
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -22,17 +23,24 @@ function ProductCard() {
         toast.success('Added to cart');
     }
 
+    const decrement = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    }
+
+    const increment = () => {
+        setQuantity(quantity + 1);
+    }
+
     const filteredProducts = product.filter((item) => {
         const titleMatches = item.title.toLowerCase().includes(searchkey.toLowerCase());
-
         const categoryMatches = filterType === '' || item.category.toLowerCase().includes(filterType.toLowerCase());
-
         let priceMatches = true;
         if (filterPrice !== '') {
             const filterPriceNumber = parseFloat(filterPrice);
             priceMatches = parseFloat(item.price) <= filterPriceNumber;
         }
-
         return titleMatches && categoryMatches && priceMatches;
     });
 
@@ -52,15 +60,13 @@ function ProductCard() {
                                     <h4 className={`block font-bold text-sm sm:text-base mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>{title}</h4>
                                     <h4 className={`block font-medium text-xs sm:text-base mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>{category}</h4>
                                     <h4 className={`mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>₹{price} {regularPrice && <span className="text-gray-500 line-through ml-3">₹{regularPrice}</span>}</h4>
-                                    <div className="add-button-container">
-                                        <button
-                                            onClick={() => addCart(item)}
-                                            type="button"
-                                            aria-label="Add">
-                                            <div >
-                                                <span className="add-button">Add to cart</span>
-                                            </div>
-                                        </button>
+                                    <div className="button-container">
+                                        <button className="add-button" onClick={() => addCart(product)}>Add to Cart</button>
+                                        <div className="input-group">
+                                            <button className="incDecBtn" type="button" onClick={decrement} disabled={quantity === 1}>-</button>
+                                            <input type="text" className="customIncDecInput" value={quantity} readOnly />
+                                            <button className="incDecBtn" type="button" onClick={increment}>+</button>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
