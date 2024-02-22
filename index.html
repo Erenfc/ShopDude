@@ -8,18 +8,6 @@
   <script>
     let docTitle = document.title;
 
-    function writeTitle() {
-      let title = docTitle;
-      let index = 0;
-      let intervalId = setInterval(function() {
-        if (index <= title.length) {
-          document.title = title.substring(0, index++);
-        } else {
-          clearInterval(intervalId);
-        }
-      }, 200);
-    }
-
     window.addEventListener("blur", () => {
       document.title = "Let's Shop Dude 🥹";
     });
