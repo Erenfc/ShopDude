@@ -9,7 +9,7 @@ function Track() {
   const { mode } = context;
 
   return (
-    <div style={{ overflowX: 'auto', height: '500px', width: '100%', display: 'flex', justifyContent: 'center' }}>
+    <div style={{ overflow: 'auto', height: '500px', width: '100%', display: 'flex', justifyContent: 'center' }}>
       {/* Center the component horizontally */}
       <section className="specific-section">
         <div className="container mx-auto px-5 md:py-5">
