@@ -26,8 +26,6 @@ function HeroSection() {
         overflow: 'hidden',
         marginTop: '25px',
         marginBottom: '25px',
-        marginLeft:'15px',
-        marginRight:'15px',
       }}>
       <div
         style={{
