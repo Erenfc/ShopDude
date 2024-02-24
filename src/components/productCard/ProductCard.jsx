@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
@@ -34,7 +34,7 @@ function ProductCard() {
     });
 
     const handleAddToCart = (event, product) => {
-        event.preventDefault(); // Prevents the default action of the button click
+        event.preventDefault();
         addCart(product);
     };
 
