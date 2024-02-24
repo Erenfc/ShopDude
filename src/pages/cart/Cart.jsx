@@ -83,8 +83,8 @@ function Cart() {
       amount: parseInt(grandTotal * 100),
       currency: "INR",
       order_receipt: 'order_rcptid_' + name,
-      name: "E-Bharat",
-      description: "for testing purpose",
+      name: "ShopDude",
+      description: "Your Online Purchases",
       handler: function (response) {
         console.log(response)
         toast.success('Payment Successful')
