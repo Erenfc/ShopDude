@@ -151,7 +151,7 @@ function Navbar() {
                             <Link to={'/'} className='flex'>
                                 <div className="flex items-center">
                                     <img
-                                        src="logo.png"
+                                        src="/logo.png"
                                         alt="ShopDude Logo"
                                         className="h-12 w-42 px-2 py-1 rounded"
                                         style={{ filter: mode === 'dark' ? 'invert(0)' : 'invert(0)' }}
