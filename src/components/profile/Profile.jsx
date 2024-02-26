@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { AuthContext } from '../../context/AuthContext';
+import MyContext from '../context/myContext';
 
 const Profile = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(MyContext);
   const orders = useSelector(state => state.orders);
 
   return (
