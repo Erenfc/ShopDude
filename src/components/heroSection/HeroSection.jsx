@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function HeroSection() {
   const imageUrls = [
-    'https://static.vecteezy.com/system/resources/previews/004/299/835/original/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-free-vector.jpg',
     'https://i.postimg.cc/RCg3z9P9/Screenshot-2024-02-14-210402.png',
     'https://i.postimg.cc/dV41bZ8J/Screenshot-2024-02-14-213816.png',
     'https://i.postimg.cc/ZR7zv38w/VPN-app-1.png',

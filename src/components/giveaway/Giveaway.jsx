@@ -38,7 +38,7 @@ const Giveaway = () => {
             {giveawayImages.map((image, index) => (
               <div key={index} className="mb-4 mx-auto">
                 <img
-                  alt={`giveaway-${index}`}
+                  alt={`giveaway ${index+1}`}
                   className="w-full h-64 object-cover object-center rounded-md inline-block border-2 border-gray-200 bg-gray-100"
                   src={image}
                 />
