@@ -21,7 +21,6 @@
     white-space: nowrap;
 }
 
-
 .add-button:hover {
     background-color: #45a049;
 }
@@ -38,7 +37,7 @@
 }
 
 .image-container img {
-    width: 75%;
+    width: 100%;
     height: 100%;
     justify-content: center;
     object-fit: cover;

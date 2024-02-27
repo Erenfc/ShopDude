@@ -46,12 +46,12 @@ function Filter() {
                             className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0  focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                             style={{ backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '', color: mode === 'dark' ? 'white' : '' }}>
                             <option value="">Select Price</option>
-                            <option value="1000">Less than 1000</option>
-                            <option value="500">Less than 500</option>
-                            <option value="200">Less than 200</option>
-                            <option value="100">Less than 100</option>
-                            <option value="50">Less than 50</option>
-                            <option value="10">Less than 10</option>
+                            <option value="1000">Less than ₹1000</option>
+                            <option value="500">Less than ₹500</option>
+                            <option value="200">Less than ₹200</option>
+                            <option value="100">Less than ₹100</option>
+                            <option value="50">Less than ₹50</option>
+                            <option value="10">Less than ₹10</option>
                         </select>
                     </div>
                 </div>
