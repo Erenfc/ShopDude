@@ -73,7 +73,7 @@ export const ProtectedRoute = ({children}) => {
 const ProtectedRouteForAdmin = ({children})=> {
   const admin = JSON.parse(localStorage.getItem('user'))
   
-  if(admin.user.email === 'masthanasaraf@gmail.com'){
+  if(admin.user.email === import.meta.env.VITE_REACT_ADMIN_EMAIL){
     return children
   }
   else{

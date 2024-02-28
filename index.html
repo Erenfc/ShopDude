@@ -21,12 +21,14 @@
   <meta property="twitter:description" content="ShopDude offers lightning-fast delivery of groceries, fruits, vegetables, and more. Experience the convenience of online shopping with India's top-rated grocery app.">
   <meta property="twitter:image" content="https://www.example.com/image.jpg"> <!-- Replace example.com/image.jpg with your actual image URL -->
   <script>
-    let docTitle = document.title;
-    window.addEventListener("blur", () => {
-      document.title = "Let's Shop Dude 🥹";
-    });
-    window.addEventListener("focus", () => {
-      document.title = docTitle;
+    document.addEventListener("DOMContentLoaded", function() {
+      let docTitle = document.title;
+      window.addEventListener("blur", () => {
+        document.title = "Let's Shop Dude 🥹";
+      });
+      window.addEventListener("focus", () => {
+        document.title = docTitle;
+      });
     });
   </script>
 </head>

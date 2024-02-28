@@ -19,8 +19,9 @@ function Navbar() {
     const cartItems = useSelector((state) => state.cart);
 
     const toggleMenu = () => {
-        setOpen(!open);
+        setOpen((prevOpen) => !prevOpen);
     };
+       
     const closeMenu = () => {
         setOpen(false);
     };
@@ -79,7 +80,7 @@ function Navbar() {
                                         </Link>
                                     )}
 
-                                    {user?.user?.email === "masthanasaraf@gmail.com" && (
+                                    {user?.user?.email === import.meta.env.VITE_REACT_ADMIN_EMAIL && (
                                         <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>
                                             Admin
                                         </Link>

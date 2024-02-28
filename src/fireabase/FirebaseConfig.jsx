@@ -4,7 +4,7 @@ import {getAuth} from 'firebase/auth';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD-qAorsTvW5JkevP_em5OF-n5kVq4RlWs",
+  apiKey: import.meta.env.VITE_REACT_API_KEY,
   authDomain: "shopdudeweb.firebaseapp.com",
   projectId: "shopdudeweb",
   storageBucket: "shopdudeweb.appspot.com",
