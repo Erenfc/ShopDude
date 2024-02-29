@@ -78,8 +78,8 @@ function Cart() {
     }
 
     var options = {
-      key: "rzp_test_cjJAgFiVYkvMgD",
-      key_secret: "pHrDsntSk8evLe8zqzxiYPa5",
+      key: import.meta.env.RAZORPAY_API,
+      key_secret: import.meta.env.RAZORPAY_KEY_SECRET,
       amount: parseInt(grandTotal * 100),
       currency: "INR",
       order_receipt: 'order_rcptid_' + name,
