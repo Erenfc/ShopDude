@@ -21,7 +21,7 @@ function Navbar() {
     const toggleMenu = () => {
         setOpen((prevOpen) => !prevOpen);
     };
-       
+
     const closeMenu = () => {
         setOpen(false);
     };
@@ -40,7 +40,6 @@ function Navbar() {
                         leaveTo="opacity-0">
                         <div className="fixed inset-0 bg-black bg-opacity-25" />
                     </Transition.Child>
-
                     <div className="fixed inset-0 z-40 flex">
                         <Transition.Child
                             as={Fragment}
@@ -67,25 +66,20 @@ function Navbar() {
                                                 </>
                                             )}
                                         </button>
-
                                     </div>
-
                                     <Link to={'/allproducts'} className="-m-2 block p-2 font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                         All Categories
                                     </Link>
-
                                     {user && (
                                         <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '' }} className="-m-2 block p-2 font-medium text-gray-900">
                                             My orders
                                         </Link>
                                     )}
-
                                     {user?.user?.email === import.meta.env.VITE_REACT_ADMIN_EMAIL && (
                                         <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>
                                             Admin
                                         </Link>
                                     )}
-
                                     <div className="-m-2 flex items-center p-2">
                                         <img
                                             src="https://imgs.search.brave.com/-s4lx_uBUcdBGhWP_X1qGmZ75sKDPlM4vNM-sV0-rHM/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzYzLzEzLzMx/LzM2MF9GXzE2MzEz/MzEwN19uQWxNZ2pQ/VXljaVRFblpDczRH/Rjk3d1NUWVhEQUhB/bi5qcGc"
@@ -95,7 +89,6 @@ function Navbar() {
                                         <span className="sr-only">, change currency</span>
                                     </div>
                                 </div>
-
                                 <div className="ml-4 mb-4 flow-root lg:ml-6">
                                     <Link to={'/cart'} className="group -m-2 flex items-center p-2" style={{ color: mode === 'dark' ? 'white' : '' }}>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -105,7 +98,6 @@ function Navbar() {
                                         <span className="sr-only">items in cart, view bag</span>
                                     </Link>
                                 </div>
-
                                 <div className="border-t border-gray-200 px-4 py-6 flex justify-center">
                                     {user ? (
                                         <button onClick={logout} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
@@ -122,22 +114,18 @@ function Navbar() {
                     </div>
                 </Dialog>
             </Transition.Root>
-
             <header className="relative bg-green">
                 <nav aria-label="Top" className="bg-green-100 px-4 sm:px-6 lg:px-8 shadow-xl ">
-                    <div className="">
-                        <div className="flex h-16 items-center">
-                            {/* Always show the menu button */}
+                    <div className="flex justify-between h-16 items-center">
+                        <div className="flex items-center">
                             <button
                                 type="button"
-                                className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
-                                onClick={open ? closeMenu : toggleMenu}>
-                                <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-                                {open ? <RxCross2 /> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 lg:hidden"
+                                onClick={toggleMenu}>
+                                {open ? <RxCross2 /> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6" onClick={closeMenu}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>}
                             </button>
-
                             <Link to={'/'} className='flex'>
                                 <div className="flex items-center">
                                     <img
@@ -147,7 +135,9 @@ function Navbar() {
                                         style={{ filter: mode === 'dark' ? 'invert(0)' : 'invert(0)' }} />
                                 </div>
                             </Link>
-                            <Search />
+                        </div>
+                        <Search />
+                        <div className="flex items-center">
                             {user && (
                                 <div className="hidden lg:flex lg:items-center">
                                     <Link to={'/profile'}>
