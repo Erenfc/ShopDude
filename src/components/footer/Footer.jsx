@@ -66,6 +66,12 @@ function Footer() {
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <img src="https://ecommerce-sk.vercel.app/pay.png" alt="" />
             </div>
+            <div className="lg:w-1/4 md:w-1/2 w-1/2 p-4">
+              <img src="https://i.postimg.cc/8s8PkJMw/playstore-icon.webp" alt="" />
+            </div>
+            <div className="lg:w-1/4 md:w-1/2 w-1/2 p-4">
+              <img src="https://i.postimg.cc/XqBY0cGp/appstore-icon.webp" alt="" />
+            </div>
           </div>
 
         </div>

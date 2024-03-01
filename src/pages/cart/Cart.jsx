@@ -78,8 +78,8 @@ function Cart() {
     }
 
     var options = {
-      key: import.meta.env.RAZORPAY_API,
-      key_secret: import.meta.env.RAZORPAY_KEY_SECRET,
+      key: import.meta.env.VITE_RAZORPAY_API,
+      key_secret: import.meta.env.VITE_RAZORPAY_KEY_SECRET,
       amount: parseInt(grandTotal * 100),
       currency: "INR",
       order_receipt: 'order_rcptid_' + name,

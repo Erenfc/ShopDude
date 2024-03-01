@@ -14,7 +14,6 @@ function Track() {
         <div className="container mx-auto p-5 md:p-5">
           <div className="flex text-center">
 
-            {/* Grocery Shopping Section */}
             <div className="p-4" style={{ minWidth: 'clamp(200px, 33%, 300px)' }}>
               <div
                 className="grocery-card border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-inset p-4 rounded-lg"
@@ -27,7 +26,6 @@ function Track() {
               </div>
             </div>
 
-            {/* Fast Delivery Section */}
             <div className="p-4" style={{ minWidth: 'clamp(200px, 33%, 300px)' }}>
               <div
                 className="grocery-card border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-inset p-4 rounded-lg"
@@ -41,7 +39,6 @@ function Track() {
               </div>
             </div>
 
-            {/* Free Shipping Over 100rs Section */}
             <div className="p-4" style={{ minWidth: 'clamp(200px, 33%, 300px)' }}>
               <div
                 className="grocery-card border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-inset p-4 rounded-lg"
