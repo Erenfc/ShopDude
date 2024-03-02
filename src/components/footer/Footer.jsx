@@ -7,75 +7,67 @@ function Footer() {
   const { mode } = context;
 
   const clampStyle = {
-    color: mode === 'dark' ? 'white' : '',
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
     WebkitLineClamp: 2,
-    overflow: 'hidden'
-  };
+  }
 
   return (
     <div className='bg-white sticky'>
       <footer className="text-gray-600 body-font bg-green-100" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }}>
-        <div className="container px-5 py-24 mx-auto" >
+        <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap md:text-left text-center order-first">
-            <div className="lg:w-1/4 md:w-1/2 sm:w-1/2 w-full px-4">
+            <div className="lg:w-1/4 md:w-1/2 sm:w-1/4 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style={clampStyle}>
-                CATEGORIES
+                ABOUT
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Home</a>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>About us</Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Order</a>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Contact us</Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Local For Vocal</a>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Help Center</Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Cart</a>
+                  <Link to={'/home'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>FAQ</Link>
                 </li>
               </nav>
             </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full sm:w-1/2 px-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase" style={{ color: mode === 'dark' ? 'white' : '' }}>Customer Service</h2>
+            <div className="lg:w-1/4 md:w-1/2 w-full sm:w-1/4 px-4">
+              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase" style={{ color: mode === 'dark' ? 'white' : '' }}>HELP & GUIDE</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link to={'/returnpolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Return Policy</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Return Policy</Link>
                 </li>
                 <li>
-                  <Link to={'/about'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>About</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Refund Policy</Link>
                 </li>
                 <li>
-                  <Link to={'/contact'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Contact Us</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping Policy</Link>
+                </li>
+                <li>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Terms of Services</Link>
                 </li>
               </nav>
             </div>
 
-            <div className="lg:w-1/4 md:w-1/2 w-full sm:w-1/2 px-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style={clampStyle}>
-                SERVICE
-              </h2>
-              <nav className="list-none mb-10">
-                <li>
-                  <Link to={'/PrivacyPolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Privacy</Link>
-                </li>
-              </nav>
-            </div>
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <img src="https://ecommerce-sk.vercel.app/pay.png" alt="" />
             </div>
+          </div>
+          <div className='w-full flex justify-center'>
             <div className="lg:w-1/4 md:w-1/2 w-1/2 p-4">
-              <img src="https://i.postimg.cc/8s8PkJMw/playstore-icon.webp" alt="" />
+              <img src="https://i.postimg.cc/8s8PkJMw/playstore-icon.webp" alt="" href="https://play.google.com" />
             </div>
             <div className="lg:w-1/4 md:w-1/2 w-1/2 p-4">
-              <img src="https://i.postimg.cc/XqBY0cGp/appstore-icon.webp" alt="" />
+              <img src="https://i.postimg.cc/XqBY0cGp/appstore-icon.webp" alt="" href="https://apple.com/store" />
             </div>
           </div>
-
         </div>
-
         <div className="bg-green-300" style={{ backgroundColor: mode === 'dark' ? 'rgb(55 57 61)' : '', color: mode === 'dark' ? 'white' : '' }}>
           <div className="container px-5 py-3 mx-auto flex items-center sm:flex-row flex-col">
             <Link to={'/'} className='flex'>

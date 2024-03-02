@@ -31,8 +31,7 @@ function HeroSection() {
           display: 'flex',
           transition: 'transform 1s ease-in-out',
           transform: `translateX(-${currentImageIndex * 100}%)`,
-        }}
-      >
+        }}>
         {imageUrls.map((url, index) => (
           <img
             key={index}

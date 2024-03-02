@@ -1,54 +1,63 @@
-import React, { useContext } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import myContext from '../../context/data/myContext';
+import React, { useState, useEffect } from 'react';
 
-const Giveaway = () => {
-  const context = useContext(myContext);
-  const { mode } = context;
+function Giveaway() {
+  const [giveawayImages] = useState([
+    'https://i.postimg.cc/s2PMj0Bw/Hv-UEe1709374940.jpg',
+    'https://i.postimg.cc/cJGKNNJv/l-HDv-B1709374897.jpg',
+    'https://i.postimg.cc/MpFCcWBG/f-MT141709374983.jpg',
+  ]);
 
-  const giveawayImages = [
-    'https://placekitten.com/300/200',
-    'https://placekitten.com/300/201',
-    'https://placekitten.com/300/202',
-  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const giveawaySettings = {
-    autoplay: true,
-    autoplaySpeed: 3000,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '0',
-  };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % giveawayImages.length);
+    }, 6000);
+
+    return () => clearInterval(intervalId);
+  }, [giveawayImages.length]);
 
   return (
     <section className="giveaway-section">
-      <div className="container mx-auto px-5 py-10">
-        <div className="mt-6 text-center">
-          <h2 className="text-xl font-semibold mb-4" style={{ color: mode === 'dark' ? 'white' : '' }}>
-            Giveaway Images
-          </h2>
-          {/* Giveaway Images Slider */}
-          <Slider {...giveawaySettings}>
-            {giveawayImages.map((image, index) => (
-              <div key={index} className="mb-4 mx-auto">
-                <img
-                  alt={`giveaway ${index+1}`}
-                  className="w-full h-64 object-cover object-center rounded-md inline-block border-2 border-gray-200 bg-gray-100"
-                  src={image}
-                />
-              </div>
-            ))}
-          </Slider>
+      <h1 className='text-center text-3xl font-bold text-black p-5'>Giveaway Contest</h1>
+      <div
+        style={{
+          position: 'relative',
+          height: 'auto',
+          width: '100%',
+          overflow: 'hidden',
+          marginTop: '10px',
+          marginBottom: '25px',
+          display: 'flex',
+          alignItems: 'center',
+        }}>
+        <div
+          style={{
+            display: 'flex',
+            transition: 'transform 1s ease-in-out',
+            transform: `translateX(-${currentImageIndex * 100}%)`,
+          }}>
+          {giveawayImages.map((url, index) => (
+            <img
+              key={index}
+              src={url}
+              alt={`Giveaway Image ${index + 1}`}
+              style={{
+                flexShrink: 0,
+                maxHeight: '300px',
+                width: 'auto',
+              }} />
+          ))}
         </div>
       </div>
+      <div style={{ textAlign: 'center' }}>
+        <a href='https://forms.gle/wiQE8FR1i1mRFsHo6' target='_blank' rel='noopener noreferrer' >
+          <button className='text-white bg-purple-500 px-5 py-2 rounded-xl mb-5'>Apply Now</button>
+        </a>
+      </div>
+
     </section>
   );
-};
+}
 
 export default Giveaway;
