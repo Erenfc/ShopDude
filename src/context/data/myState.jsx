@@ -57,8 +57,6 @@ function myState(props) {
             console.log(error);
             setLoading(false)
         }
-        // setProducts("")
-
 
     }
 
@@ -96,8 +94,6 @@ function myState(props) {
         getProductData();
     }, []);
 
-    // update product function
-
     const edithandle = (item) => {
         setProducts(item)
     }
@@ -120,8 +116,6 @@ function myState(props) {
         }
     }
 
-    // delete product
-
     const deleteProduct = async (item) => {
         setLoading(true)
         try {
@@ -134,7 +128,6 @@ function myState(props) {
             setLoading(false)
         }
     }
-
 
     const [order, setOrder] = useState([]);
 

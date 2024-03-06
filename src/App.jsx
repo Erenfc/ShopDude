@@ -5,7 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-
+import UserDashboard from './pages/user/UserDashboard';
 import Home from './pages/home/Home';
 import Order from './pages/order/Order';
 import Cart from './pages/cart/Cart';
@@ -30,6 +30,11 @@ function App() {
           <Route path="/order" element={
             <ProtectedRoute>
               <Order />
+            </ProtectedRoute>
+          } />
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <UserDashboard />
             </ProtectedRoute>
           } />
           <Route path="/cart" element={<Cart />} />

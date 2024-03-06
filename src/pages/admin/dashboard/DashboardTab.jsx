@@ -38,14 +38,14 @@ function DashboardTab() {
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 border-pink-500 bg-[#605d5d12] text-pink-500  hover:shadow-pink-700  rounded-lg text-xl shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]    px-5 py-1.5 text-center ">
                                     <div className="flex gap-2 items-center">
-                                        <AiFillShopping /> Orders
+                                        <AiFillShopping/> Orders
                                     </div>
                                 </button>
                             </Tab>
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 border-green-500 bg-[#605d5d12] text-green-500 rounded-lg text-xl  hover:shadow-green-700 shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]   px-5 py-1.5 text-center ">
                                     <div className="flex gap-2 items-center">
-                                        <FaUser /> Users
+                                        <FaUser/> Users
                                     </div>
                                 </button>
                             </Tab>
@@ -96,7 +96,7 @@ function DashboardTab() {
                                             </tr>
                                         </thead>
                                         {product.map((item, index) => {
-                                            const { title, price, regularPrice, imageUrl, category, brand, description, date } = item;
+                                            const { title, price, regularPrice, imageUrl, category, brand, date } = item;
                                             return (
                                                 <tbody key={index}>
                                                     <tr className="bg-gray-50 border-b dark:border-gray-700" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }}>
@@ -154,7 +154,6 @@ function DashboardTab() {
                         </TabPanel>
 
                         <TabPanel>
-                            {/* <Order order={order} setOrder={setOrder} setLoading={setLoading} /> */}
                             <div className="relative overflow-x-auto mb-16">
                                 <h1 className=' text-center mb-5 text-3xl font-semibold underline' style={{ color: mode === 'dark' ? 'white' : '' }}>Order Details</h1>
 
@@ -174,6 +173,9 @@ function DashboardTab() {
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
                                                         Price
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3">
+                                                        Quantity
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
                                                         Category
@@ -199,7 +201,7 @@ function DashboardTab() {
                                                 </tr>
                                             </thead>
                                             {allorder.cartItems.map((item, itemIndex) => {
-                                                const { title, description, category, imageUrl, price } = item;
+                                                const { title, category, imageUrl, price, quantity } = item;
                                                 return (
                                                     <tbody key={itemIndex}>
                                                         <tr className="bg-gray-50 border-b dark:border-gray-700" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }} >
@@ -214,6 +216,9 @@ function DashboardTab() {
                                                             </td>
                                                             <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                                 ₹{price}
+                                                            </td>
+                                                            <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                                {quantity}
                                                             </td>
                                                             <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                                 {category}
@@ -243,12 +248,10 @@ function DashboardTab() {
                                         </table>
                                     );
                                 })}
-
                             </div>
                         </TabPanel>
 
                         <TabPanel>
-                            {/* <User addressInfo={addressInfo} setAddressInfo={setAddressInfo} setLoading={setLoading} /> */}
                             <div className="relative overflow-x-auto mb-10">
                                 <h1 className=' text-center mb-5 text-3xl font-semibold underline' style={{ color: mode === 'dark' ? 'white' : '' }}>User Details</h1>
                                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -257,7 +260,6 @@ function DashboardTab() {
                                             <th scope="col" className="px-6 py-3">
                                                 S.No
                                             </th>
-
                                             <th scope="col" className="px-6 py-3">
                                                 Name
                                             </th>
@@ -265,32 +267,41 @@ function DashboardTab() {
                                                 Email
                                             </th>
                                             <th scope="col" className="px-6 py-3">
+                                                Phone Number
+                                            </th>
+                                            <th scope="col" className="px-6 py-3">
                                                 Uid
                                             </th>
-
+                                            <th scope="col" className="px-6 py-3">
+                                                Registered Date
+                                            </th>
                                         </tr>
                                     </thead>
                                     {user.map((item, index) => {
-                                        const { name, uid, email, date } = item;
+                                        const { name, uid, email, mobile, time } = item;
+                                        const joinedDate = new Date(time.seconds * 1000);
                                         return (
-                                            <tbody>
-                                                <tr className="bg-gray-50 border-b  dark:border-gray-700" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
-                                                    <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
-                                                        {index + 1}.
-                                                    </td>
-                                                    <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
-                                                        {name}
-                                                    </td>
-                                                    <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
-                                                        {email}
-                                                    </td>
-                                                    <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
-                                                        {uid}
-                                                    </td>
-
-                                                </tr>
-                                            </tbody>
-                                        )
+                                            <tr className="bg-gray-50 border-b dark:border-gray-700" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }} key={index}>
+                                                <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                    {index + 1}.
+                                                </td>
+                                                <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                    {name}
+                                                </td>
+                                                <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                    {email}
+                                                </td>
+                                                <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                    {mobile}
+                                                </td>
+                                                <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                    {uid}
+                                                </td>
+                                                <td className="px-6 py-4 text-black" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                    {joinedDate.toString()}
+                                                </td>
+                                            </tr>
+                                        );
                                     })}
                                 </table>
                             </div>
@@ -302,6 +313,5 @@ function DashboardTab() {
         </>
     )
 }
-
 
 export default DashboardTab

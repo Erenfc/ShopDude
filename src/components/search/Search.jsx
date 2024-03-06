@@ -1,9 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import myContext from '../../context/data/myContext';
 
 function Search() {
     const context = useContext(myContext);
     const { mode, searchkey, setSearchkey } = context;
+
+    const placeholders = ['Fruits & Vegetables',
+    'Milk, Bread & Eggs',
+    'Meat & Fish',
+    'Rice, Atta & Dal',
+    'Oil, Masala & Sauces',
+    'Snacks & Biscuits',
+    'Instant Food',
+    'Cakes & Backery',
+    'Chocolates & Icecreams',
+    'Tea & Coffee',
+    'Health & Nutrition',
+    'Cleaning & Household',
+    'Hygiene & Personal Care',
+    'Soap & Shampoo',
+    'Beauty & Makeup',
+    'Baby Care'];
+    const [placeholderIndex, setPlaceholderIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
+        }, 3000);
+
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
             <div className="relative m-2 md:w-60 lg:w-80">
@@ -18,7 +44,7 @@ function Search() {
                     value={searchkey}
                     onChange={(e) => setSearchkey(e.target.value)}
                     id="searchkey"
-                    placeholder="Search here"
+                    placeholder={placeholders[placeholderIndex]}
                     className="px-8 py-3 w-full rounded-md bg-violet-0 border-transparent outline-0 text-sm"/>
             </div>
     );
