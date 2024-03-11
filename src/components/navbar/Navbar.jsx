@@ -28,7 +28,7 @@ function Navbar() {
     };
 
     return (
-        <div className="bg-white sticky top-0 z-50 ">
+        <div className={`bg-${mode === 'dark' ? 'gray-900' : 'white'} sticky top-0 z-50`}>
             <Transition.Root show={open} as={Fragment}>
                 <Dialog as="div" className="fixed inset-0 z-50" onClose={setOpen}>
                     <Transition.Child
