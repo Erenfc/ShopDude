@@ -9,6 +9,7 @@ import UserDashboard from './pages/user/UserDashboard';
 import Home from './pages/home/Home';
 import Order from './pages/order/Order';
 import Cart from './pages/cart/Cart';
+import ScrollTop from "./components/scrollTop/ScrollTop";
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import NoPage from './pages/nopage/NoPage';
 import MyState from './context/data/myState';
@@ -24,6 +25,7 @@ function App() {
   return (
     <MyState>
       <Router>
+      <ScrollTop/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/allproducts" element={<Allproducts />} />

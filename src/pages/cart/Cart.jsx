@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../fireabase/FirebaseConfig';
 import { FaTrashCan } from "react-icons/fa6";
+import { Navigate } from "react-router";
 
 function Cart() {
   const context = useContext(myContext);
@@ -31,22 +32,24 @@ function Cart() {
     dispatch(decrementQuantity(id));
   };
 
-useEffect(() => {
-  localStorage.setItem('cart', JSON.stringify(cartItems));
-}, [cartItems]);
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
-const [totalAmount, setTotalAmount] = useState(0);
-useEffect(() => {
-  let temp = 0;
-  cartItems.forEach(cartItem => {
-    temp = temp + (cartItem.price * cartItem.quantity);
-  });
-  setTotalAmount(temp);
-}, [cartItems]);
+  const user = JSON.parse(localStorage.getItem('users'))
 
-const shipping = totalAmount < 100 ? 30 : 0;
+  const [totalAmount, setTotalAmount] = useState(0);
+  useEffect(() => {
+    let temp = 0;
+    cartItems.forEach(cartItem => {
+      temp = temp + (cartItem.price * cartItem.quantity);
+    });
+    setTotalAmount(temp);
+  }, [cartItems]);
 
-const grandTotal = shipping + totalAmount;
+  const shipping = totalAmount < 100 ? 30 : 0;
+
+  const grandTotal = shipping + totalAmount;
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -136,7 +139,7 @@ const grandTotal = shipping + totalAmount;
       <div className="mx-auto max-w-5xl flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
           {cartItems.map((item, index) => {
-            const { id, title, price, category, imageUrl,quantity } = item;
+            const { id, title, price, category, imageUrl, quantity } = item;
             return (
               <div key={index} className="rounded-lg border shadow-md bg-white p-6 flex items-center space-x-4">
                 <img src={imageUrl} alt="product-image" className="w-24 md:w-40 rounded-lg" />
@@ -148,16 +151,16 @@ const grandTotal = shipping + totalAmount;
                   </div>
                   <div className="flex items-center space-x-4 mt-4 md:mt-0">
                     <div className='border-2 flex flex-row'>
-                    <button onClick={() => handleDecrement(id)} type="button" className="h-7 w-7" >
-                      -
-                    </button>
-                    <input
-                      type="text"
-                      className="mx-1 h-7 w-9 rounded-md border text-center"
-                      value = {quantity} />
-                    <button onClick={() => handleIncrement(id)} type="button" className="flex h-7 w-7 items-center justify-center">
-                      +
-                    </button>
+                      <button onClick={() => handleDecrement(id)} type="button" className="h-7 w-7" >
+                        -
+                      </button>
+                      <input
+                        type="text"
+                        className="mx-1 h-7 w-9 rounded-md border text-center"
+                        value={quantity} />
+                      <button onClick={() => handleIncrement(id)} type="button" className="flex h-7 w-7 items-center justify-center">
+                        +
+                      </button>
                     </div>
                     <div className="ml-6 flex text-sm">
                       <button onClick={() => deleteCart(item)} type="button" className="flex items-center space-x-1 px-2 py-1 pl-0">
@@ -186,16 +189,20 @@ const grandTotal = shipping + totalAmount;
             <p className="text-lg font-bold mb-2">Total</p>
             <p className="text-lg font-bold mb-2">₹{grandTotal}</p>
           </div>
-          <Modal
-            name={name}
-            address={address}
-            pincode={pincode}
-            phoneNumber={phoneNumber}
-            setName={setName}
-            setAddress={setAddress}
-            setPincode={setPincode}
-            setPhoneNumber={setPhoneNumber}
-            buyNow={buyNow}/>
+          {
+            user ?
+            <Modal
+              name={name}
+              address={address}
+              pincode={pincode}
+              phoneNumber={phoneNumber}
+              setName={setName}
+              setAddress={setAddress}
+              setPincode={setPincode}
+              setPhoneNumber={setPhoneNumber}
+              buyNow={buyNow} />
+            : <Navigate to={'/login'}/>
+          }
         </div>
       </div>
     </Layout>
