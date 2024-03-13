@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../fireabase/FirebaseConfig';
 import { FaTrashCan } from "react-icons/fa6";
-import { Navigate } from "react-router";
 
 function Cart() {
   const context = useContext(myContext);
@@ -17,7 +16,6 @@ function Cart() {
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state.cart);
-  console.log(cartItems);
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
@@ -35,8 +33,6 @@ function Cart() {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
-
-  const user = JSON.parse(localStorage.getItem('users'))
 
   const [totalAmount, setTotalAmount] = useState(0);
   useEffect(() => {
@@ -189,9 +185,7 @@ function Cart() {
             <p className="text-lg font-bold mb-2">Total</p>
             <p className="text-lg font-bold mb-2">₹{grandTotal}</p>
           </div>
-          {
-            user ?
-            <Modal
+          <Modal
               name={name}
               address={address}
               pincode={pincode}
@@ -201,8 +195,6 @@ function Cart() {
               setPincode={setPincode}
               setPhoneNumber={setPhoneNumber}
               buyNow={buyNow} />
-            : <Navigate to={'/login'}/>
-          }
         </div>
       </div>
     </Layout>

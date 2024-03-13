@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import PropTypes from 'prop-types'
 
 export default function Modal({ name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow }) {
     let [isOpen, setIsOpen] = useState(false);
@@ -11,6 +12,18 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
     function openModal() {
         setIsOpen(true);
     }
+
+    Modal.propTypes = {
+        name: PropTypes.string,
+        address: PropTypes.string,
+        pincode: PropTypes.string,
+        phoneNumber: PropTypes.string,
+        setName: PropTypes.func.isRequired,
+        setAddress: PropTypes.func.isRequired,
+        setPincode: PropTypes.func.isRequired,
+        setPhoneNumber: PropTypes.func.isRequired,
+        buyNow: PropTypes.func.isRequired,
+    };
 
     return (
         <>
@@ -32,8 +45,7 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
                         enterTo="opacity-100"
                         leave="ease-in duration-200"
                         leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
+                        leaveTo="opacity-0">
                         <div className="fixed inset-0 bg-black bg-opacity-25" />
                     </Transition.Child>
 
@@ -46,10 +58,8 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
                                 enterTo="opacity-100 scale-100"
                                 leave="ease-in duration-200"
                                 leaveFrom="opacity-100 scale-100"
-                                leaveTo="opacity-0 scale-95"
-                            >
+                                leaveTo="opacity-0 scale-95">
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl p-2 text-left align-middle shadow-xl transition-all bg-gray-50">
-
                                     <section className="">
                                         <div className="flex flex-col items-center justify-center py-8 mx-auto lg:py-0">
                                             <div className="w-full rounded-lg md:mt-0 sm:max-w-md xl:p-0 ">

@@ -39,7 +39,7 @@ function Navbar() {
                         leave="transition-opacity ease-linear duration-300"
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0">
-                        <div className="absolute inset-0 bg-black bg-opacity-25" />
+                        <div className="absolute inset-0 bg-black bg-opacity-25"/>
                     </Transition.Child>
                     <Transition.Child
                         as={Fragment}
@@ -81,16 +81,18 @@ function Navbar() {
                                     <Link to={'/cart'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         Cart ({cartItems.length})
                                     </Link>
+                                    <Link to={'/profile'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
+                                        Profile
+                                    </Link>
                                     <div className="flex justify-center border-t border-gray-200 mt-4 p-4">
-                                        {user ? (
-                                            <button onClick={logout} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
-                                                Logout
-                                            </button>
-                                        ) : (
-                                            <Link to={'/signup'} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
-                                                Signup
-                                            </Link>
-                                        )}
+                                        {user ? 
+                                        (<button onClick={logout} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
+                                            Logout
+                                            </button>) : 
+                                        (<Link to={'/signup'} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
+                                            Signup
+                                        </Link>)
+                                        }
                                     </div>
                                 </div>
                             </div>
