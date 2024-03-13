@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useState } from 'react';
 import myContext from '../../context/data/myContext';
-import { FaToggleOn, FaToggleOff } from 'react-icons/fa6';
+import { FaToggleOn, FaToggleOff } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react';
 import { RxCross2 } from 'react-icons/rx';
@@ -28,7 +28,7 @@ function Navbar() {
     };
 
     return (
-        <div className={`bg-${mode === 'dark' ? 'gray-900' : 'white'} sticky top-0 z-50`}>
+        <div className={`bg-${mode === 'dark' ? 'gray-900' : 'white'} sticky top-0 z-50`} style={{ color: mode === 'dark' ? 'white' : '' }}>
             <Transition.Root show={open} as={Fragment}>
                 <Dialog as="div" className="fixed inset-0 z-50" onClose={setOpen}>
                     <Transition.Child
@@ -52,13 +52,12 @@ function Navbar() {
                         <Dialog.Panel className="absolute top-0 left-0 h-full w-64 bg-white shadow-lg">
                             <div className="flex flex-col h-full">
                                 <div className="p-4 flex items-center border-b">                                    
-                                    <button className="focus:outline-none ml-auto" onClick={closeMenu}>
+                                    <button className="focus:outline-none ml-auto" onClick={closeMenu} style={{ color: mode === 'dark' ? 'white' : '' }}>
                                         <RxCross2 className="text-gray-500" size={24} />
                                     </button>                                    
                                 </div>
-
                                 <div className="flex-grow">
-                                <button className="focus:outline-none m-3" onClick={toggleMode}>
+                                    <button className="focus:outline-none m-3" onClick={toggleMode}>
                                         {mode === 'light' ? (
                                             <FaToggleOff className="text-gray-500" size={24} />
                                         ) : (
@@ -82,9 +81,12 @@ function Navbar() {
                                         Cart ({cartItems.length})
                                     </Link>
                                     <Link to={'/profile'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
+                                        <img
+                                            className="inline-block w-10 h-10 rounded-full"
+                                            src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg"/>
                                         Profile
                                     </Link>
-                                    <div className="flex justify-center border-t border-gray-200 mt-4 p-4">
+                                    <div className="flex justify-center border-t border-gray-200 p-4">
                                         {user ? 
                                         (<button onClick={logout} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
                                             Logout
@@ -106,7 +108,7 @@ function Navbar() {
                         <div className="flex items-center">
                             <button
                                 type="button"
-                                className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 lg:hidden"
+                                className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                                 onClick={toggleMenu}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
@@ -116,11 +118,10 @@ function Navbar() {
                                 <img
                                     src="/logo.png"
                                     alt="ShopDude Logo"
-                                    className="h-12 w-42 px-2 py-1 rounded"
-                                />
+                                    className="h-12 w-42 px-2 py-1 rounded"/>
                             </Link>
                         </div>
-                        <Search />
+                        <Search/>
                         <div className="flex items-center">
                             {user && (
                                 <div className="hidden lg:flex lg:items-center">
@@ -128,8 +129,7 @@ function Navbar() {
                                         <img
                                             className="inline-block w-10 h-10 rounded-full"
                                             src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
-                                            alt="User0001"
-                                        />
+                                            alt="User0001"/>
                                     </Link>
                                 </div>
                             )}
