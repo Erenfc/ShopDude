@@ -79,6 +79,9 @@ function Navbar() {
                                     <Link to={'/cart'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         Cart ({cartItems.length})
                                     </Link>
+                                    <Link to={'/recipe'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
+                                        AI Recipes
+                                    </Link>
                                     <Link to={'/profile'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         <img
                                             className="inline-block w-10 h-10 rounded-full"
