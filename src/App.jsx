@@ -21,6 +21,7 @@ import UpdateProduct from './pages/admin/page/UpdateProduct';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Allproducts from './pages/allproducts/Allproducts';
+import GrocerySearch from './pages/recipeAI/RecipeAI';
 function App() {
   return (
     <MyState>
@@ -34,11 +35,8 @@ function App() {
               <Order />
             </ProtectedRoute>
           } />
-          <Route path="/profile" element={
-            <ProtectedRoute>
-              <UserDashboard />
-            </ProtectedRoute>
-          } />
+          <Route path="/profile" element={<UserDashboard />} />
+          <Route path="/recipe" element={<GrocerySearch />}/>
           <Route path="/cart" element={<Cart />} />
           <Route path="/dashboard" element={
             <ProtectedRouteForAdmin>

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import myContext from '../../context/data/myContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
@@ -11,7 +10,7 @@ import ProductCard from '../../components/productCard/ProductCard';
 
 function Allproducts() {
   const context = useContext(myContext);
-  const { mode, product, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice } = context;
+  const { mode } = context;
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);

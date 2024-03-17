@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import myContext from '../../context/data/myContext'
+
 
 function Giveaway() {
+  const context = useContext(myContext);
+  const { mode } = context;
   const [giveawayImages] = useState([
     'https://i.postimg.cc/cJGKNNJv/l-HDv-B1709374897.jpg',
     'https://i.postimg.cc/s2PMj0Bw/Hv-UEe1709374940.jpg',
@@ -31,9 +35,9 @@ function Giveaway() {
   };
 
   return (
-    <section className="bg-gray-100 py-12">
+    <section className="py-12" style={{ color: mode === 'dark' ? 'white' : '' }}>
       <div className="max-w-4xl mx-auto px-4 relative">
-        <h1 className='text-center text-3xl font-bold text-gray-800 mb-8'>Giveaway Contest</h1>
+        <h1 className='text-center text-3xl font-bold text-gray-800 mb-8' style={{ color: mode === 'dark' ? 'white' : '' }}>Giveaway Contest</h1>
         <div className="relative overflow-hidden md:h-80 h-60">
           <div className="carousel w-full flex justify-center items-center h-full relative">
             {giveawayImages.map((url, index) => (

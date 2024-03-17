@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react';
 import { RxCross2 } from 'react-icons/rx';
 import { useSelector } from 'react-redux';
-import Search from '../../components/search/Search';
 
 function Navbar() {
     const context = useContext(myContext);
@@ -80,9 +79,6 @@ function Navbar() {
                                     <Link to={'/cart'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         Cart ({cartItems.length})
                                     </Link>
-                                    <Link to={'/recipe'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
-                                        AI Recipes
-                                    </Link>
                                     <Link to={'/profile'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         <img
                                             className="inline-block w-10 h-10 rounded-full"
@@ -124,7 +120,6 @@ function Navbar() {
                                     className="h-12 w-42 px-2 py-1 rounded"/>
                             </Link>
                         </div>
-                        <Search/>
                         <div className="flex items-center">
                             {user && (
                                 <div className="hidden lg:flex lg:items-center">
