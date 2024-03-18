@@ -5,6 +5,7 @@ function HeroSection() {
     'https://i.postimg.cc/RCg3z9P9/Screenshot-2024-02-14-210402.png',
     'https://i.postimg.cc/dV41bZ8J/Screenshot-2024-02-14-213816.png',
     'https://i.postimg.cc/ZR7zv38w/VPN-app-1.png',
+    'https://i.postimg.cc/pLwQQK9M/Untitled.png',
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

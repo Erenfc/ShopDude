@@ -56,7 +56,7 @@ function Navbar() {
                                     </button>                                    
                                 </div>
                                 <div className="flex-grow">
-                                    <button className="focus:outline-none m-3" onClick={toggleMode}>
+                                    <button className="block m-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200" onClick={toggleMode}>
                                         {mode === 'light' ? (
                                             <FaToggleOff className="text-gray-500" size={24} />
                                         ) : (
@@ -129,7 +129,7 @@ function Navbar() {
                                     <Link to={'/profile'}>
                                         <img
                                             className="inline-block w-10 h-10 rounded-full"
-                                            src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
+                                            src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg"
                                             alt="User0001"/>
                                     </Link>
                                 </div>
