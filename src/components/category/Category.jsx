@@ -13,7 +13,7 @@ function Category({ mode, cardStyle }) {
         <CategoryCard imgUrl="https://i.postimg.cc/zDgFnB7K/Remove-bg-ai-1710784884194.png" title="Instant Food" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://i.postimg.cc/bY9vv3MZ/apricot-cakes-2-removebg-preview.png" title="Cakes & Backery" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://i.postimg.cc/cHv82HSG/Chocolates-Icecreams-new-removebg-preview.png" title="Chocolates & Icecreams" cardStyle={cardStyle} />
-        <CategoryCard imgUrl="https://i.postimg.cc/W3chW7Xg/Tea-coffee-QL30-removebg-preview.png" title="Tea & Coffee" cardStyle={cardStyle} />
+        <CategoryCard imgUrl="https://i.postimg.cc/c4g0JJ8r/hp-bev-m-tea-coffee-480-250923-removebg-preview.png" title="Tea & Coffee" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://i.postimg.cc/8CnkrmrL/Health-Nutrition-QL30-removebg-preview.png" title="Health & Nutrition" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://i.postimg.cc/ZRMLYzVP/Remove-bg-ai-1710784141387.png" title="Cleaning & Household" cardStyle={cardStyle} />
         <CategoryCard imgUrl="https://i.postimg.cc/VvnzYMfj/Hygiene-Personal-care-QL30-removebg-preview-1.png" title="Hygiene & Personal Care" cardStyle={cardStyle} />
