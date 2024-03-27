@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import MyContext from './myContext'
+import React, { useEffect, useState } from 'react';
+import MyContext from './myContext';
 import { Timestamp, addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { fireDB } from '../../fireabase/FirebaseConfig';
@@ -60,6 +60,31 @@ function myState(props) {
 
     }
 
+    const [getAllOrder, setGetAllOrder] = useState([]);
+
+    const getAllOrderFunction = async () => {
+        setLoading(true);
+        try {
+            const q = query(
+                collection(fireDB, "order"),
+                orderBy('time')
+            );
+            const data = onSnapshot(q, (QuerySnapshot) => {
+                let orderArray = [];
+                QuerySnapshot.forEach((doc) => {
+                    orderArray.push({ ...doc.data(), id: doc.id });
+                });
+                setGetAllOrder(orderArray);
+                setLoading(false);
+            });
+            return () => data;
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
+
+
     const [product, setProduct] = useState([]);
 
     const getProductData = async () => {
@@ -87,12 +112,7 @@ function myState(props) {
             console.log(error)
             setLoading(false)
         }
-
     }
-
-    useEffect(() => {
-        getProductData();
-    }, []);
 
     const edithandle = (item) => {
         setProducts(item)
@@ -172,6 +192,8 @@ function myState(props) {
     useEffect(() => {
         getOrderData();
         getUserData();
+        getAllOrderFunction();
+        getProductData();
     }, []);
 
     const [searchkey, setSearchkey] = useState('')
@@ -184,7 +206,8 @@ function myState(props) {
             products, setProducts, addProduct, product,
             edithandle, updateProduct, deleteProduct, order,
             user, searchkey, setSearchkey,filterType,setFilterType,
-            filterPrice,setFilterPrice
+            filterPrice,setFilterPrice,
+            getAllOrder, setGetAllOrder,
         }}>
             {props.children}
         </MyContext.Provider>

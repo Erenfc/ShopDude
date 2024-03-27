@@ -4,22 +4,19 @@ import myContext from "../../context/data/myContext";
 import Loader from "../../components/loader/Loader";
 
 const UserDashboard = () => {
-    // user
     const user = JSON.parse(localStorage.getItem('users'));
+    console.log('User from local storage:', user);
 
     const context = useContext(myContext);
-    const { loading, getAllOrder } = context
-    // console.log(getAllOrder)
+    const { loading, getAllOrder } = context;
+    console.log('Loading status:', loading);
+    console.log('All orders:', getAllOrder);
 
-    // console.log(user)
     return (
         <Layout>
             <div className=" container mx-auto px-4 py-5 lg:py-8">
-                {/* Top  */}
                 <div className="top ">
-                    {/* main  */}
                     <div className=" bg-pink-50 py-5 rounded-xl border border-pink-100">
-                        {/* image  */}
                         <div className="flex justify-center">
                             <img src="https://cdn-icons-png.flaticon.com/128/2202/2202112.png" alt="" />
                         </div>
