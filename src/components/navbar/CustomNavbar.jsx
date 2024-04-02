@@ -72,23 +72,19 @@ function Navbar() {
                                     <Link to={'/allproducts'} className="block m-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         All Categories
                                     </Link>
-                                    {user && (
-                                        <Link to={'/order'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200" onClick={handleClick}>
-                                            My Orders
-                                        </Link>
-                                    )}
+                                    <Link to={'/order'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200" onClick={handleClick}>
+                                        My Orders
+                                    </Link>
                                     {user?.user?.email === import.meta.env.VITE_REACT_ADMIN_EMAIL && (
                                         <Link to={'/dashboard'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                             Admin
                                         </Link>
                                     )}
-                                    {user && (
-                                        <Link to={'/cart'}
-                                            className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200"
-                                            onClick={handleClick}>
-                                            Cart ({cartItems.length})
-                                        </Link>
-                                    )}
+                                    <Link to={'/cart'}
+                                        className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200"
+                                        onClick={handleClick}>
+                                        Cart ({cartItems.length})
+                                    </Link>
                                     <Link to={'/recipe'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         AI Recipes
                                     </Link>
