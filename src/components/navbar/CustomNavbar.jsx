@@ -26,6 +26,12 @@ function Navbar() {
         window.location.href = '/login';
     };
 
+    const handleClick = () => {
+        if (!user) {
+            history.push('/login');
+        }
+    };
+
     return (
         <div className={`bg-${mode === 'dark' ? 'gray-900' : 'white'} sticky top-0 z-50`} style={{ color: mode === 'dark' ? 'white' : '' }}>
             <Transition.Root show={open} as={Fragment}>
@@ -38,7 +44,7 @@ function Navbar() {
                         leave="transition-opacity ease-linear duration-300"
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0">
-                        <div className="absolute inset-0 bg-black bg-opacity-25"/>
+                        <div className="absolute inset-0 bg-black bg-opacity-25" />
                     </Transition.Child>
                     <Transition.Child
                         as={Fragment}
@@ -50,10 +56,10 @@ function Navbar() {
                         leaveTo="-translate-x-full">
                         <Dialog.Panel className="absolute top-0 left-0 h-full w-64 bg-white shadow-lg">
                             <div className="flex flex-col h-full">
-                                <div className="p-4 flex items-center border-b">                                    
+                                <div className="p-4 flex items-center border-b">
                                     <button className="focus:outline-none ml-auto" onClick={closeMenu} style={{ color: mode === 'dark' ? 'white' : '' }}>
                                         <RxCross2 className="text-gray-500" size={24} />
-                                    </button>                                    
+                                    </button>
                                 </div>
                                 <div className="flex-grow">
                                     <button className="block m-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200" onClick={toggleMode}>
@@ -67,7 +73,7 @@ function Navbar() {
                                         All Categories
                                     </Link>
                                     {user && (
-                                        <Link to={'/order'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
+                                        <Link to={'/order'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200" onClick={handleClick}>
                                             My Orders
                                         </Link>
                                     )}
@@ -76,26 +82,30 @@ function Navbar() {
                                             Admin
                                         </Link>
                                     )}
-                                    <Link to={'/cart'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
-                                        Cart ({cartItems.length})
-                                    </Link>
+                                    {user && (
+                                        <Link to={'/cart'}
+                                            className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200"
+                                            onClick={handleClick}>
+                                            Cart ({cartItems.length})
+                                        </Link>
+                                    )}
                                     <Link to={'/recipe'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         AI Recipes
                                     </Link>
                                     <Link to={'/profile'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         <img
                                             className="inline-block w-10 h-10 rounded-full"
-                                            src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg"/>
+                                            src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg" />
                                         Profile
                                     </Link>
                                     <div className="flex justify-center border-t border-gray-200 p-4">
-                                        {user ? 
-                                        (<button onClick={logout} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
-                                            Logout
-                                            </button>) : 
-                                        (<Link to={'/signup'} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
-                                            Signup
-                                        </Link>)
+                                        {user ?
+                                            (<button onClick={logout} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
+                                                Logout
+                                            </button>) :
+                                            (<Link to={'/signup'} className="bg-gray-300 px-5 py-2 rounded-xl" style={{ color: mode === 'dark' ? 'black' : '' }}>
+                                                Signup
+                                            </Link>)
                                         }
                                     </div>
                                 </div>
@@ -120,7 +130,7 @@ function Navbar() {
                                 <img
                                     src="/logo.png"
                                     alt="ShopDude Logo"
-                                    className="h-12 w-42 px-2 py-1 rounded"/>
+                                    className="h-12 w-42 px-2 py-1 rounded" />
                             </Link>
                         </div>
                         <div className="flex items-center">
@@ -130,7 +140,7 @@ function Navbar() {
                                         <img
                                             className="inline-block w-10 h-10 rounded-full"
                                             src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg"
-                                            alt="User0001"/>
+                                            alt="User0001" />
                                     </Link>
                                 </div>
                             )}

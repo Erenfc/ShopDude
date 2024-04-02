@@ -27,6 +27,12 @@ function Navbar() {
         window.location.href = '/login';
     };
 
+    const handleClick = () => {
+        if (!user) {
+            history.push('/login');
+        }
+    };
+
     return (
         <div className={`bg-${mode === 'dark' ? 'gray-900' : 'white'} sticky top-0 z-50`} style={{ color: mode === 'dark' ? 'white' : '' }}>
             <Transition.Root show={open} as={Fragment}>
@@ -68,7 +74,7 @@ function Navbar() {
                                         All Categories
                                     </Link>
                                     {user && (
-                                        <Link to={'/order'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
+                                        <Link to={'/order'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200" onClick={handleClick}>
                                             My Orders
                                         </Link>
                                     )}
@@ -77,9 +83,13 @@ function Navbar() {
                                             Admin
                                         </Link>
                                     )}
-                                    <Link to={'/cart'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
-                                        Cart ({cartItems.length})
-                                    </Link>
+                                    {user && (
+                                        <Link to={'/cart'}
+                                            className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200"
+                                            onClick={handleClick}>
+                                            Cart ({cartItems.length})
+                                        </Link>
+                                    )}
                                     <Link to={'/recipe'} className="block p-4 hover:bg-gray-100 transition duration-300 border-b border-gray-200">
                                         AI Recipes
                                     </Link>
