@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 function HeroSection() {
   const imageUrls = [
-    'https://i.postimg.cc/RCg3z9P9/Screenshot-2024-02-14-210402.png',
-    'https://i.postimg.cc/dV41bZ8J/Screenshot-2024-02-14-213816.png',
-    'https://i.postimg.cc/ZR7zv38w/VPN-app-1.png',
+    'https://i.postimg.cc/XqVMq6f6/1500x300-summer-store-2-SX1500-QL85.jpg',
+    'https://i.postimg.cc/vBKqFR0v/Cooking-essentials-1500x300-4-SX1500-QL85.jpg',
+    'https://i.postimg.cc/5jd17JfT/mango-1500x300-v1-SX1500-QL85.jpg',
     'https://i.postimg.cc/pLwQQK9M/Untitled.png',
   ];
 
@@ -19,29 +19,15 @@ function HeroSection() {
   }, [imageUrls]);
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        overflow: 'hidden',
-        marginTop: '25px',
-        marginBottom: '25px',
-      }}>
-      <div
-        style={{
-          display: 'flex',
-          transition: 'transform 1s ease-in-out',
-          transform: `translateX(-${currentImageIndex * 100}%)`,
-        }}>
+    <div className="relative w-full overflow-hidden sm:mb-20 mt-6 mb-14">
+      <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
         {imageUrls.map((url, index) => (
           <img
             key={index}
             src={url}
             alt={`Image ${index + 1}`}
-            style={{
-              flexShrink: 0,
-              width: '100%',
-            }}
+            className="flex-shrink-0 w-full sm:p-9"
+
           />
         ))}
       </div>

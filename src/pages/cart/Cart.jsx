@@ -49,11 +49,12 @@ function Cart() {
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
+  const [area, setArea] = useState("");
   const [pincode, setPincode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const buyNow = async () => {
-    if (name === "" || address == "" || pincode == "" || phoneNumber == "") {
+    if (name === "" || address == "" || area == "" || pincode == "" || phoneNumber == "") {
       return toast.error("All fields are required", {
         position: "top-center",
         autoClose: 1000,
@@ -69,6 +70,7 @@ function Cart() {
     const addressInfo = {
       name,
       address,
+      area,
       pincode,
       phoneNumber,
       date: new Date().toLocaleString(
@@ -188,10 +190,12 @@ function Cart() {
           <Modal
               name={name}
               address={address}
+              area={area}
               pincode={pincode}
               phoneNumber={phoneNumber}
               setName={setName}
               setAddress={setAddress}
+              setArea={setArea}
               setPincode={setPincode}
               setPhoneNumber={setPhoneNumber}
               buyNow={buyNow} />

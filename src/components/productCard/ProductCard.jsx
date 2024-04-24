@@ -45,7 +45,7 @@ function ProductCard() {
                     {filteredProducts.slice(0, 8).map((item, index) => {
                         const { title, price, category, brand, imageUrl, id, regularPrice } = item;
                         return (
-                            <a key={index} id={`store-product-${id}`} className={`store-product-container cursor-pointer w-1/2 lg:w-1/5 md:h-120 ${mode === 'light' ? 'bg-white' : 'bg-gray-900'} border-solid border border-gray-300 box-border h-80 shadow-none border-[#f1edf3] p-5 mb-5`} href={`/productinfo/${id}`}>
+                            <a key={index} id={`store-product-${id}`} className={`store-product-container cursor-pointer w-1/2 lg:w-1/6 md:h-120 ${mode === 'light' ? 'bg-white' : 'bg-gray-900'} border-solid border border-gray-300 box-border h-80 shadow-none border-[#f1edf3] p-5 mb-5`} href={`/productinfo/${id}`}>
                                 <div className="image-container mb-1">
                                     <img className="object-cover w-full h-full" src={imageUrl} alt={title} />
                                 </div>

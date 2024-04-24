@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import PropTypes from 'prop-types'
 
-export default function Modal({ name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow }) {
+export default function Modal({ name, address, area , pincode, phoneNumber, setName, setAddress, setArea, setPincode, setPhoneNumber, buyNow }) {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -16,10 +16,12 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
     Modal.propTypes = {
         name: PropTypes.string,
         address: PropTypes.string,
+        area: PropTypes.string,
         pincode: PropTypes.string,
         phoneNumber: PropTypes.string,
         setName: PropTypes.func.isRequired,
         setAddress: PropTypes.func.isRequired,
+        setArea: PropTypes.func.isRequired,
         setPincode: PropTypes.func.isRequired,
         setPhoneNumber: PropTypes.func.isRequired,
         buyNow: PropTypes.func.isRequired,
@@ -75,7 +77,7 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
                                                         </div>
                                                         <div>
                                                             <label htmlFor="area" className="block mb-2 text-sm font-medium text-gray-900">Enter Area / Colony Name</label>
-                                                            <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" name="area" id="area" className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
+                                                            <input value={area} onChange={(e) => setArea(e.target.value)} type="text" name="area" id="area" className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
                                                         </div>
                                                         <div>
                                                             <label htmlFor="city" className="block mb-2 text-sm font-medium text-gray-900">Enter City & Pincode</label>

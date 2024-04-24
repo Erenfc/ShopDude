@@ -11,7 +11,7 @@ function Track() {
   const { mode } = context;
 
   return (
-    <div style={{ overflowX: 'auto', overflowY: 'hidden', height: '275px', width: '100%', display: 'flex', justifyContent: 'center' }}>
+    <div className="overflow-x-auto overflow-y-hidden h-275 w-full flex justify-center">
       <section className="specific-section">
         <div className="container mx-auto p-5 md:p-5">
           <div className="flex text-center">
