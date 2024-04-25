@@ -64,7 +64,7 @@ function App() {
   )
 }
 
-export default App 
+export default App
 
 export const ProtectedRoute = ({children}) => {
   const user = localStorage.getItem('user')
@@ -84,5 +84,4 @@ const ProtectedRouteForAdmin = ({children})=> {
   else{
     return <Navigate to={'/login'}/>
   }
-
 }
