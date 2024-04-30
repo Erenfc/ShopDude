@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import myContext from '../../context/data/myContext';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../redux/cartSlice';
-import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 import Layout from '../../components/layout/Layout';
 import Filter from '../../components/filter/Filter';
 import Category from '../../components/category/Category';
@@ -12,13 +10,7 @@ function Allproducts() {
   const context = useContext(myContext);
   const { mode } = context;
 
-  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
-
-  const addCart = (product) => {
-    dispatch(addToCart(product));
-    toast.success('Added to cart');
-  }
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -36,7 +28,7 @@ function Allproducts() {
       <div className="my-8 "></div>
       <h1 className={`text-3xl font-bold text-center mb-8 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>All Categories</h1>
       <Category mode={mode} cardStyle={cardStyle} />
-      <ProductCard />
+      <ProductCard val={100000}/>
     </Layout>
    );
 }

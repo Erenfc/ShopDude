@@ -13,8 +13,8 @@ function Home() {
     <Layout>
       <Filter />
       <HeroSection />
-        <ProductCard />
-      <div className="flex justify-center mb-10">
+        <ProductCard val = {18} />
+      <div className="flex justify-center mb-10 mt-5">
         <Link to={'/allproducts'}>
           <button className='bg-gray-300 px-5 py-2 rounded-xl'>See more</button>
         </Link>

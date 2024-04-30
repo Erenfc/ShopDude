@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import myContext from '../../context/data/myContext';
 import './productCard.css';
 
-function ProductCard() {
+function ProductCard( props ) {
     const context = useContext(myContext);
     const { mode, product, searchkey, filterType, filterPrice } = context;
 
@@ -42,12 +42,12 @@ function ProductCard() {
         <section className={`text-gray-600 body-font ${mode === 'light' ? 'bg-white' : 'bg-gray-900'}`}>
             <div className="container mx-auto">
                 <div className="flex flex-wrap">
-                    {filteredProducts.slice(0, 8).map((item, index) => {
+                    {filteredProducts.slice(0, props.val).map((item, index) => {
                         const { title, price, category, brand, imageUrl, id, regularPrice } = item;
                         return (
                             <a key={index} id={`store-product-${id}`} className={`store-product-container cursor-pointer w-1/2 lg:w-1/6 md:h-120 ${mode === 'light' ? 'bg-white' : 'bg-gray-900'} border-solid border border-gray-300 box-border h-80 shadow-none border-[#f1edf3] p-5 mb-5`} href={`/productinfo/${id}`}>
                                 <div className="image-container mb-1">
-                                    <img className="object-cover w-full h-full" src={imageUrl} alt={title} />
+                                    <img className="object-contain w-full h-full" src={imageUrl} alt={title} />
                                 </div>
                                 <div>
                                     <h4 className={`block font-semibold text-sm sm:text-base mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>{brand}</h4>

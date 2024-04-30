@@ -58,7 +58,7 @@ function Cart() {
       return toast.error("All fields are required", {
         position: "top-center",
         autoClose: 1000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
