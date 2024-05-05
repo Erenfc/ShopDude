@@ -92,7 +92,6 @@ function Cart() {
       name: "ShopDude",
       description: "Your Online Purchases",
       handler: function (response) {
-        console.log(response)
         toast.success('Payment Successful')
         const paymentId = response.razorpay_payment_id;
 
@@ -129,8 +128,8 @@ function Cart() {
     var pay = new window.Razorpay(options);
     pay.open();
     console.log(pay)
-
   }
+
   return (
     <Layout>
       <h1 className="mb-10 text-center text-2xl font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>Cart Items</h1>
@@ -154,6 +153,7 @@ function Cart() {
                       </button>
                       <input
                         type="text"
+                        readOnly
                         className="mx-1 h-7 w-9 rounded-md border text-center"
                         value={quantity} />
                       <button onClick={() => handleIncrement(id)} type="button" className="flex h-7 w-7 items-center justify-center">

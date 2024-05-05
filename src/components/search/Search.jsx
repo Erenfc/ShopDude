@@ -3,7 +3,7 @@ import myContext from '../../context/data/myContext';
 
 function Search() {
     const context = useContext(myContext);
-    const { mode, searchkey, setSearchkey } = context;
+    const { searchkey, setSearchkey } = context;
 
     const placeholders = ['Fruits & Vegetables',
     'Milk, Bread & Eggs',

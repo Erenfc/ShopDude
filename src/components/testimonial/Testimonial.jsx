@@ -43,7 +43,8 @@ const Testimonial = () => {
     slidesToScroll: 1,
   };
 
-  useEffect(() => { console.log('Testimonial Mode:', mode); console.log('Testimonial Testimonials:', testimonials); }, [mode, testimonials]);
+  useEffect(() => {
+  }, [mode, testimonials]);
 
   return (
     <section className="testimonial-section">
