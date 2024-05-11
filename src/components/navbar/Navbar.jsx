@@ -6,8 +6,6 @@ import { Dialog, Transition } from '@headlessui/react';
 import { RxCross2 } from 'react-icons/rx';
 import { useSelector } from 'react-redux';
 import Search from '../../components/search/Search';
-import { signOut } from "firebase/auth";
-import { auth } from "../../fireabase/FirebaseConfig";
 
 function Navbar() {
     const context = useContext(myContext);
