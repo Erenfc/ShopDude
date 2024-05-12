@@ -4,7 +4,7 @@ import { Timestamp, addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, ord
 import { toast } from 'react-toastify';
 import { fireDB } from '../../fireabase/FirebaseConfig';
 
-function myState(props) {
+function useMyState() {
     const [mode, setMode] = useState('light');
 
     const toggleMode = () => {
@@ -57,7 +57,6 @@ function myState(props) {
             console.log(error);
             setLoading(false)
         }
-
     }
 
     const [getAllOrder, setGetAllOrder] = useState([]);
@@ -198,18 +197,19 @@ function myState(props) {
     const [filterType, setFilterType] = useState('')
     const [filterPrice, setFilterPrice] = useState('')
 
+    return { mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, edithandle, updateProduct, deleteProduct, order, user, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, getAllOrder, setGetAllOrder };
+}
+
+function MyStateProvider(props) {
+    const { mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, edithandle, updateProduct, deleteProduct, order, user, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, getAllOrder, setGetAllOrder } = useMyState();
+
     return (
         <MyContext.Provider value={{
-            mode, toggleMode, loading, setLoading,
-            products, setProducts, addProduct, product,
-            edithandle, updateProduct, deleteProduct, order,
-            user, searchkey, setSearchkey,filterType,setFilterType,
-            filterPrice,setFilterPrice,
-            getAllOrder, setGetAllOrder,
+            mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, edithandle, updateProduct, deleteProduct, order, user, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, getAllOrder, setGetAllOrder
         }}>
             {props.children}
         </MyContext.Provider>
     )
 }
 
-export default myState
+export default MyStateProvider;

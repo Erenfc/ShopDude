@@ -19,7 +19,7 @@ function HeroSection() {
   }, [imageUrls]);
 
   return (
-    <div className="relative w-full overflow-hidden sm:mb-20 mt-6 mb-14">
+    <div className="relative w-full overflow-hidden sm:mb-20 mt-6 mb-6">
       <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
         {imageUrls.map((url, index) => (
           <img

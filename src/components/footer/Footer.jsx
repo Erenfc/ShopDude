@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import myContext from '../../context/data/myContext'
+import React, { useContext } from 'react';
+import myContext from '../../context/data/myContext';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -15,42 +15,40 @@ function Footer() {
 
   return (
     <div className='bg-white sticky'>
-      <footer className="text-gray-600 body-font bg-green-100" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }}>
+      <footer className="text-gray-600 body-font bg-green-100">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap md:text-left text-center order-first">
             <div className="lg:w-1/4 md:w-1/2 sm:w-1/4 w-full px-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>
-                ABOUT
-              </h2>
+              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ABOUT</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>About us</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800">About us</Link>
                 </li>
                 <li>
-                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Contact us</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800">Contact us</Link>
                 </li>
                 <li>
-                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Help Center</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800">Help Center</Link>
                 </li>
                 <li>
-                  <Link to={'/home'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>FAQ</Link>
+                  <Link to={'/home'} className="text-gray-600 hover:text-gray-800">FAQ</Link>
                 </li>
               </nav>
             </div>
             <div className="lg:w-1/4 md:w-1/2 w-full sm:w-1/4 px-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase" style={{ color: mode === 'dark' ? 'white' : '' }}>HELP & GUIDE</h2>
+              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase">HELP & GUIDE</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Return Policy</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800">Return Policy</Link>
                 </li>
                 <li>
-                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Refund Policy</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800">Refund Policy</Link>
                 </li>
                 <li>
-                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping Policy</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800">Shipping Policy</Link>
                 </li>
                 <li>
-                  <Link to={'/'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Terms of Services</Link>
+                  <Link to={'/'} className="text-gray-600 hover:text-gray-800">Terms of Services</Link>
                 </li>
               </nav>
             </div>
@@ -68,15 +66,15 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="bg-green-300" style={{ backgroundColor: mode === 'dark' ? 'rgb(55 57 61)' : '', color: mode === 'dark' ? 'white' : '' }}>
+        <div className="bg-green-300">
           <div className="container px-5 py-3 mx-auto flex items-center sm:flex-row flex-col">
             <Link to={'/'} className='flex'>
-              <div className="flex ">
-                <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '' }}>ShopDude</h1>
+              <div className="flex">
+                <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded'>ShopDude</h1>
               </div>
             </Link>
-            <p className="text-sm text-gray-900 sm:ml-6 sm:mt-0 mt-4" style={{ color: mode === 'dark' ? 'white' : '' }}>© 2024 ShopDude —
-              <a href="https://twitter.com" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank" style={{ color: mode === 'dark' ? 'white' : '' }}>www.ShopDude.com</a>
+            <p className="text-sm text-gray-900 sm:ml-6 sm:mt-0 mt-4">© 2024 ShopDude —
+              <a href="https://twitter.com" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank">www.ShopDude.com</a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
               <a className="text-gray-500">
@@ -109,4 +107,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer;

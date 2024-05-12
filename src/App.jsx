@@ -22,11 +22,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Allproducts from './pages/allproducts/Allproducts';
 import GrocerySearch from './pages/recipeAI/RecipeAI';
+
 function App() {
   return (
     <MyState>
       <Router>
-      <ScrollTop/>
+        <ScrollTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/allproducts" element={<Allproducts />} />
@@ -36,29 +37,33 @@ function App() {
             </ProtectedRoute>
           } />
           <Route path="/profile" element={<UserDashboard />} />
-          <Route path="/recipe" element={<GrocerySearch />}/>
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/recipe" element={<GrocerySearch />} />
+          <Route path="/cart" element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }/>
           <Route path="/dashboard" element={
             <ProtectedRouteForAdmin>
               <Dashboard />
             </ProtectedRouteForAdmin>
           } />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/signup' element={<Signup/>} />
-          <Route path='/productinfo/:id' element={<ProductInfo/>} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/productinfo/:id' element={<ProductInfo />} />
           <Route path='/addproduct' element={
             <ProtectedRouteForAdmin>
-              <AddProduct/>
+              <AddProduct />
             </ProtectedRouteForAdmin>
           } />
           <Route path='/updateproduct' element={
             <ProtectedRouteForAdmin>
-              <UpdateProduct/>
+              <UpdateProduct />
             </ProtectedRouteForAdmin>
           } />
           <Route path="/*" element={<NoPage />} />
         </Routes>
-        <ToastContainer/>
+        <ToastContainer />
       </Router>
     </MyState>
   )
@@ -66,22 +71,22 @@ function App() {
 
 export default App
 
-export const ProtectedRoute = ({children}) => {
+export const ProtectedRoute = ({ children }) => {
   const user = localStorage.getItem('user')
-  if(user){
+  if (user) {
     return children
-  }else{
-    return <Navigate to={'/login'}/>
+  } else {
+    return <Navigate to={'/login'} />
   }
 }
 
-const ProtectedRouteForAdmin = ({children})=> {
+const ProtectedRouteForAdmin = ({ children }) => {
   const admin = JSON.parse(localStorage.getItem('user'))
-  
-  if(admin.user.email === import.meta.env.VITE_REACT_ADMIN_EMAIL){
+
+  if (admin.user.email === import.meta.env.VITE_REACT_ADMIN_EMAIL) {
     return children
   }
-  else{
-    return <Navigate to={'/login'}/>
+  else {
+    return <Navigate to={'/login'} />
   }
 }

@@ -1,14 +1,15 @@
-import { useContext, useEffect, } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import myContext from '../../context/data/myContext';
+import LoaderImage from '../../assets/loader.gif';
 import './productCard.css';
 
-function ProductCard( props ) {
+function ProductCard(props) {
     const context = useContext(myContext);
-    const { mode, product, searchkey, filterType, filterPrice } = context;
+    const { mode, product, searchkey, filterType, filterPrice, loading } = context;
 
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart);
@@ -41,6 +42,10 @@ function ProductCard( props ) {
     return (
         <section className={`text-gray-600 body-font ${mode === 'light' ? 'bg-white' : 'bg-gray-900'}`}>
             <div className="container mx-auto">
+                {loading && (
+                    <div className="h-full pt-10 flex justify-center items-center">
+                        <img src={LoaderImage} alt="Loading..." />
+                    </div>)}                    
                 <div className="flex flex-wrap">
                     {filteredProducts.slice(0, props.val).map((item, index) => {
                         const { title, price, category, brand, imageUrl, id, regularPrice } = item;
