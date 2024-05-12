@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import Layout from '../../components/layout/Layout';
 import HeroSection from '../../components/heroSection/HeroSection';
 import Filter from '../../components/filter/Filter';
-const ProductCard = React.lazy(() => import('../../components/productCard/ProductCard'));
+import ProductCard from '../../components/productCard/ProductCard';
 import Track from '../../components/track/Track';
 import Testimonial from '../../components/testimonial/Testimonial';
 import { Link } from 'react-router-dom';

@@ -50,14 +50,14 @@ function ProductCard(props) {
                     {filteredProducts.slice(0, props.val).map((item, index) => {
                         const { title, price, category, brand, imageUrl, id, regularPrice } = item;
                         return (
-                            <a key={index} id={`store-product-${id}`} className={`store-product-container cursor-pointer w-1/2 lg:w-1/6 md:h-120 ${mode === 'light' ? 'bg-white' : 'bg-gray-900'} border-solid border border-gray-300 box-border h-80 shadow-none border-[#f1edf3] p-5 mb-5`} href={`/productinfo/${id}`}>
+                            <a key={index} id={`store-product-${id}`} className={`store-product-container cursor-pointer w-1/2 lg:w-1/6 md:h-120 ${mode === 'light' ? 'bg-white' : 'bg-gray-900'} border-solid border border-gray-300 box-border h-80 shadow-none border-[#f1edf3] p-3 mb-5`} href={`/productinfo/${id}`}>
                                 <div className="image-container mb-1">
-                                    <img className="object-contain w-full h-full" src={imageUrl} alt={title} />
+                                    <img className="object-cover w-full h-full" src={imageUrl} alt={title} />
                                 </div>
                                 <div>
-                                    <h4 className={`block font-semibold text-sm sm:text-base mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>{brand}</h4>
                                     <h4 className={`block font-bold text-sm sm:text-base mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>{title}</h4>
-                                    <h4 className={`block font-medium text-xs sm:text-base mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>{category}</h4>
+                                    <h4 className={`block font-medium text-xs sm:text-sm mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>{category}</h4>
+                                    <h4 className={`block font-semibold text-xs sm:text-sm mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}><span className='font-bold text-xs sm:text-base mb-1'>Brand: </span>{brand}</h4>
                                     <h4 className={`mb-1`} style={{ color: mode === 'dark' ? 'white' : '' }}>₹{price} {regularPrice && <span className="text-gray-500 line-through ml-3">₹{regularPrice}</span>}</h4>
                                     <div className="button-container">
                                         <button className="add-button" onClick={(e) => handleAddToCart(e, item)}>Add to Cart</button>
